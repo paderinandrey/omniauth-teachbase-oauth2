@@ -1,0 +1,24 @@
+{
+   "phone": "+71234567890",
+   "name": "Foo Bar",
+   "email": "foo@example.com",
+   "first_name": "Foo",
+   "last_name": "Bar",
+   "lang": "ru",
+   "avatar_url": "example.com/foobar",
+   "notice_email": "foo@example.org",
+   "accounts": [
+      {
+         "id": 1,
+         "name": "account 1",
+         "logo_url": "example.com/foobar",
+         "logo_large_url": "example.com/foobar"
+      },
+      {
+         "id": 2,
+         "name": "account 2",
+         "logo_url": "example.com/foobar",
+         "logo_large_url": "example.com/foobar"
+      }
+   ]
+}

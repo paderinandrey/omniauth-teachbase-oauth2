@@ -4,6 +4,7 @@ require 'omniauth-oauth2'
 
 module OmniAuth
   module Strategies
+    # Teachbase OAuth2 Strategy for OmniAuth
     class Teachbase < OmniAuth::Strategies::OAuth2
       # Give your strategy a name.
       option :name, 'teachbase'
@@ -17,14 +18,14 @@ module OmniAuth
 
       info do
         {
-          email: raw_info["email"],
+          email: raw_info['email'],
           phone: raw_info['phone'],
           name: user_name,
-          first_name: raw_info['name'],
+          first_name: raw_info['first_name'],
           last_name: raw_info['last_name'],
           lang: raw_info['lang'],
           notice_email: raw_info['notice_email'],
-          image: raw_info['avatar_url'],
+          avatar_url: raw_info['avatar_url'],
           accounts: raw_info['accounts']
         }
       end
@@ -34,7 +35,7 @@ module OmniAuth
       end
 
       def callback_url
-        full_host + script_name + callback_path
+        options[:callback_url] || (full_host + script_name + callback_path)
       end
 
       def raw_info
@@ -44,7 +45,7 @@ module OmniAuth
       private
 
       def user_name
-        name = "#{raw_info['name']} #{raw_info['last_name']}".strip
+        name = "#{raw_info['first_name']} #{raw_info['last_name']}".strip
         name.empty? ? nil : name
       end
     end
